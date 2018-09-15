@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: unhappy-camper
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: whatever
+    spec:
+      containers:
+        - name: shell
+          image: centos:7
+          command:
+            - sh
+            - '-c'
+            - echo "I will just print something here and then exit"
