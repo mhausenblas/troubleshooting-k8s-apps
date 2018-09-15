@@ -1,0 +1,11 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+th, td {
+    font-size: 14px;
+    font-weight: 300;
+    padding: 10px;
+    background: unset;
+}
