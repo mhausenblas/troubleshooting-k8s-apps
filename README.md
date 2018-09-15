@@ -75,20 +75,19 @@ References:
 
 Show missing permissions and `can-i`
 
-References:
+References see [kubernetes-security.info](https://kubernetes-security.info/).
 
 ## Observability
 
-Show Linkerd 2.0 in action, Jaeger 101.
+Show Linkerd 2.0 in action, show Jaeger 101.
 
 References:
 
 - [Evolution of Monitoring and Prometheus](https://www.slideshare.net/brianbrazil/evolution-of-monitoring-and-prometheus-dublin-2018)
 
-
 ## Vaccination
 
-Show [chaoskube](https://github.com/linki/chaoskube) in action.
+Show chaoskube in action.
 
 References:
 
@@ -96,6 +95,8 @@ References:
 - [Kubernetes Best Practices](https://medium.com/google-cloud/kubernetes-best-practices-8d5cd03446e2)
 - [Developing on Kubernetes](https://kubernetes.io/blog/2018/05/01/developing-on-kubernetes/)
 - [Kubernetes Application Operator Basics](https://blog.openshift.com/kubernetes-application-operator-basics/) 
+- Tooling
+  - [chaoskube](https://github.com/linki/chaoskube)
 
 ## References
 
