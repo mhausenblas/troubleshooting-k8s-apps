@@ -50,7 +50,8 @@ kubectl -n vnyc delete deploy/unhappy-camper
 - `kubectl exec` for when it crashes
 - `kubectl logs` for app-level SNAFU
 
-![pod lifecycle](img/pod-lifecycle.png)
+![pod lifecycle](img/pod-lifecycle-inline.png)
+Download [in original resolution](https://github.com/mhausenblas/troubleshooting-k8s-apps/raw/master/img/pod-lifecycle.png).
 
 ## Storage
 
