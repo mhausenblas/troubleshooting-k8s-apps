@@ -6,7 +6,7 @@ _When?_  &nbsp;&nbsp;&nbsp; Wednesday Oct 3, 1:30pm (40min) <br />
 _Where?_ &nbsp;&nbsp; Beekman/Sutton North <br />
 
 [Intro](#intro) | [Poking Pods](#poking-pods) | [Storage](#storage) | [Network](#network) | [Security](#security) | [Observability](#observability) | [Vaccination](#vaccination) | [References](#references)
----| --- | --- | --- | --- | --- | --- | --- |--- | --- 
+--- | --- | --- | --- | --- | --- | --- | --- 
 
 The slide deck is available [here](http://dev/null) and to demonstrate the different failures and how to fix them I'm using the following commands.
 
