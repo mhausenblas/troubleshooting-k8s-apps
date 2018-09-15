@@ -50,6 +50,8 @@ kubectl -n vnyc delete deploy/unhappy-camper
 ![pod lifecycle](img/pod-lifecycle-inline.png)
 Download [in original resolution](https://github.com/mhausenblas/troubleshooting-k8s-apps/raw/master/img/pod-lifecycle.png).
 
+References:
+
 - [Debugging microservices - Squash vs. Telepresence](https://www.weave.works/blog/debugging-microservices-squash-vs-telepresence)
 - [Debugging and Troubleshooting Microservices in Kubernetes with Ray Tsang (Google)](https://www.weave.works/blog/debugging-and-troubleshooting-microservices-in-kubernetes)
 - [Troubleshooting Kubernetes Using Logs](https://blog.papertrailapp.com/troubleshoot-kubernetes-using-logs/)
@@ -57,6 +59,8 @@ Download [in original resolution](https://github.com/mhausenblas/troubleshooting
 ## Storage
 
 Show failed mount
+
+References:
 
 - [Debugging Kubernetes PVCs](https://itnext.io/debugging-kubernetes-pvcs-a150f5efbe95) 
 
