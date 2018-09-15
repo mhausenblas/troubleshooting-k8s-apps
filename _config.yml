@@ -1,5 +1,5 @@
 theme: jekyll-theme-dinky
-title: Troubleshooting Kubernetes Apps
-description: Talk at Velocity NYC 2018
+title: TKA
+description: A hands-on talk on troubleshooting Kubernetes applications, given at Velocity NYC 2018.
 show_downloads: false
 google_analytics:
