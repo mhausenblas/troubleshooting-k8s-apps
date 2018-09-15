@@ -5,10 +5,10 @@ A talk at [Velocity NYC 2018](https://conferences.oreilly.com/velocity/vl-ny/pub
 _When?_  &nbsp;&nbsp;&nbsp; Wednesday Oct 3, 1:30pm (40min) <br />
 _Where?_ &nbsp;&nbsp; Beekman/Sutton North <br />
 
-[Preparation](#preparation)  | [Intro](#intro)  | [References](#references)
----              | ---                          | ---
-[Poking Pods](#poking-pods) | [Storage](#storage) | [Network](#network)
-[Security](#security) | [Observability](#observability) | [Vaccination](#vaccination)
+[Preparation](#preparation)     | [Intro](#intro)             | [Poking Pods](#poking-pods)
+---                             | ---                         | ---
+[Storage](#storage)             | [Network](#network)         | [Security](#security) 
+[Observability](#observability) | [Vaccination](#vaccination) | [References](#references)
 
 
 The slide deck is available [here](http://dev/null) and to demonstrate the different failures and how to fix them I'm using the following commands.
