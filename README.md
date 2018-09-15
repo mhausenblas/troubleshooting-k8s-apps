@@ -33,5 +33,32 @@ kubectl -n vnyc logs $THEPOD
 kubectl -n vnyc exec -it $THEPOD -- sh
 
 kubectl -n vnyc delete deploy/unhappy-camper
-
 ```
+
+## Poking Pods
+
+- `kubectl get pods` and `get events`
+- `kubectl exec` for when it crashes
+- `kubectl logs` for app-level SNAFU
+
+## Storage
+
+Show failed mount
+
+## Network
+
+- wrong selector (can't ping VIP)
+- `127.0.0.1` issue
+- taking a pod offline for debugging (service)
+
+## Security
+
+Show missing permissions and `can-i`
+
+## Observability
+
+Show Linkerd 2.0 in action, Jaeger 101.
+
+## Vaccination
+
+Show [chaoskube](https://github.com/linki/chaoskube) in action.
