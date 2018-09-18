@@ -43,6 +43,16 @@ kubectl -n vnyc delete deploy/unhappy-camper
 
 ## Poking Pods
 
+### Image issues
+
+```
+kubectl -n vnyc apply -f 01_pp_image.yaml
+kubectl -n vnyc get pods
+kubectl -n vnyc get events 
+
+```
+
+
 - `kubectl get pods` and `get events`
 - `kubectl exec` for when it crashes
 - `kubectl logs` for app-level SNAFU
