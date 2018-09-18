@@ -111,8 +111,9 @@ References:
 
 ## Network
 
-- wrong selector (can't ping VIP)
-- `127.0.0.1` issue
+- wrong selector 
+- can't ping VIP of the service
+- demonstrate the `127.0.0.1` issue (solution: listen on `0.0.0.0`)
 - taking a pod offline for debugging (service)
 
 References:
@@ -128,7 +129,13 @@ References see [kubernetes-security.info](https://kubernetes-security.info/).
 
 ## Observability
 
-Show Linkerd 2.0 in action, show Jaeger 101.
+### Service ops in practice
+
+[Linkerd 2.0 in action](https://medium.com)
+
+## Distributed tracing
+
+Show Jaeger 101.
 
 References:
 
