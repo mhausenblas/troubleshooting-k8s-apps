@@ -45,6 +45,8 @@ kubectl -n vnyc delete deploy/unhappy-camper
 
 ### Image issue
 
+Using [01_pp_image.yaml](01_pp_image.yaml):
+
 ```
 kubectl -n vnyc apply -f 01_pp_image.yaml
 kubectl -n vnyc get pods
@@ -57,6 +59,8 @@ kubectl -n vnyc delete deploy/confused-imager
 ```
 
 ### Keeps crashing
+
+Using [02_pp_oomer.yaml](02_pp_oomer.yaml) and [02_pp_oomer-fixed.yaml](02_pp_oomer-fixed.yaml):
 
 ```
 kubectl -n vnyc apply -f 02_pp_oomer.yaml
@@ -72,10 +76,16 @@ kubectl -n vnyc exec -it $(kubectl -n vnyc get po -l=app=oomer --output=jsonpath
 kubectl -n vnyc delete deploy wegotan-oomer
 ```
 
-
 ### Something's wrong with the app
 
-`kubectl logs` for app-level SNAFU
+Using [03_pp_logs.yaml](03_pp_logs.yaml): 
+
+```
+kubectl -n vnyc apply -f 03_pp_logs.yaml
+kubectl logs $(kubectl -n vnyc get po -l=app=hiccup --output=jsonpath={.items[*].metadata.name})
+
+kubectl -n vnyc delete deploy hiccup
+```
 
 ![pod lifecycle](img/pod-lifecycle-inline.png)
 Download [in original resolution](https://github.com/mhausenblas/troubleshooting-k8s-apps/raw/master/img/pod-lifecycle.png).
