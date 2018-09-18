@@ -82,7 +82,12 @@ Using [03_pp_logs.yaml](03_pp_logs.yaml):
 
 ```
 kubectl -n vnyc apply -f 03_pp_logs.yaml
-kubectl logs $(kubectl -n vnyc get po -l=app=hiccup --output=jsonpath={.items[*].metadata.name})
+
+# nothing to see here:
+kubectl -n vnyc describe deploy/hiccup
+
+# but I see it in the logs:
+kubectl -n vnyc logs --follow $(kubectl -n vnyc get po -l=app=hiccup --output=jsonpath={.items[*].metadata.name})
 
 kubectl -n vnyc delete deploy hiccup
 ```

@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: hiccup
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hiccup
+    spec:
+      containers:
+        - name: theapp
+          image: centos:7
+          command:
+            - sh
+            - '-c'
+            - "for x in {1..20}; do echo doing some good work here in $x ; sleep 1; done; echo bye for now; exit"
