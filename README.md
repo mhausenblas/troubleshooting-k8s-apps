@@ -49,14 +49,33 @@ kubectl -n vnyc delete deploy/unhappy-camper
 kubectl -n vnyc apply -f 01_pp_image.yaml
 kubectl -n vnyc get pods
 kubectl -n vnyc get events | grep confused | grep Error
+
 kubectl -n vnyc patch deployment confused-imager  \
                 --patch '{ "spec" : { "template" : { "spec" : { "containers" : [ { "name" : "something" , "image" : "mhausenblas/simpleservice:0.5.0" } ] } } } }' \
+
+kubectl -n vnyc delete deploy/confused-imager
+```
+
+### Keeps crashing
+
+```
+kubectl -n vnyc apply -f 02_pp_oomer.yaml
+kubectl -n vnyc exec -it $(kubectl -n vnyc get po -l=app=oomer --output=jsonpath={.items[*].metadata.name}) -c greedymuch -- cat /sys/fs/cgroup/memory/memory.limit_in_bytes /sys/fs/cgroup/memory/memory.usage_in_bytes
+
+# wait > 5s
+kubectl -n vnyc describe po $(kubectl -n vnyc get po -l=app=oomer --output=jsonpath={.items[*].metadata.name})
+
+kubectl -n vnyc apply -f 02_pp_oomer-fixed.yaml
+# wait > 20s
+kubectl -n vnyc exec -it $(kubectl -n vnyc get po -l=app=oomer --output=jsonpath={.items[*].metadata.name}) -c greedymuch -- cat /sys/fs/cgroup/memory/memory.limit_in_bytes /sys/fs/cgroup/memory/memory.usage_in_bytes
+
+kubectl -n vnyc delete deploy wegotan-oomer
 ```
 
 
-- `kubectl get pods` and `get events`
-- `kubectl exec` for when it crashes
-- `kubectl logs` for app-level SNAFU
+### Something's wrong with the app
+
+`kubectl logs` for app-level SNAFU
 
 ![pod lifecycle](img/pod-lifecycle-inline.png)
 Download [in original resolution](https://github.com/mhausenblas/troubleshooting-k8s-apps/raw/master/img/pod-lifecycle.png).

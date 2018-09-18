@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: wegotan-oomer
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: oomer
+    spec:
+      containers:
+        - name: greedymuch
+          image: centos:7
+          command:
+            - sh
+            - '-c'
+            - "sleep 5 && yes | tr \\n x | head -c 500m | grep n && sleep 1000"
+          resources:
+            limits:
+              memory: 600M
+        - name: shell
+          image: centos:7
+          command:
+            - sh
+            - '-c'
+            - sleep 1000
