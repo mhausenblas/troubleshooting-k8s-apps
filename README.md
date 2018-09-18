@@ -43,13 +43,14 @@ kubectl -n vnyc delete deploy/unhappy-camper
 
 ## Poking Pods
 
-### Image issues
+### Image issue
 
 ```
 kubectl -n vnyc apply -f 01_pp_image.yaml
 kubectl -n vnyc get pods
-kubectl -n vnyc get events 
-
+kubectl -n vnyc get events | grep confused | grep Error
+kubectl -n vnyc patch deployment confused-imager  \
+                --patch '{ "spec" : { "template" : { "spec" : { "containers" : [ { "name" : "something" , "image" : "mhausenblas/simpleservice:0.5.0" } ] } } } }' \
 ```
 
 

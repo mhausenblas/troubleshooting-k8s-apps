@@ -11,4 +11,4 @@ spec:
     spec:
       containers:
         - name: something
-          image: simpleservice:0.5
+          image: simpleservice:0.5.0
