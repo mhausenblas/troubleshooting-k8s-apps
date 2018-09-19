@@ -121,17 +121,36 @@ kubectl -n vnyc apply -f 04_storage-failedmount-fixed.yaml
 kubectl -n vnyc delete deploy wheresmyvolume
 ```
 
-
 References:
 
 - [Debugging Kubernetes PVCs](https://itnext.io/debugging-kubernetes-pvcs-a150f5efbe95) 
 
 ## Network
 
-- wrong selector 
-- can't ping VIP of the service
-- demonstrate the `127.0.0.1` issue (solution: listen on `0.0.0.0`)
-- taking a pod offline for debugging (service)
+Wrong selector:
+
+Using [05_network-wrongsel.yaml](05_network-wrongsel.yaml) and [05_network-wrongsel-fixed.yaml](05_network-wrongsel-fixed.yaml): 
+
+```
+kubectl -n vnyc run webserver --image nginx --port 80
+
+kubectl -n vnyc apply -f 05_network-wrongsel.yaml 
+
+kubectl -n vnyc run -it --rm debugpod --restart=Never --image=centos:7 -- curl webserver.vnyc
+
+kubectl -n vnyc run -it --rm debugpod --restart=Never --image=centos:7 -- ping webserver.vnyc
+
+kubectl -n vnyc run -it --rm debugpod --restart=Never --image=centos:7 -- ping $(kubectl -n vnyc get po -l=run=webserver --output=jsonpath={.items[*].status.podIP})
+
+kubectl -n vnyc apply -f 05_network-wrongsel-fixed.yaml 
+
+kubectl -n vnyc delete deploy webserver 
+```
+
+Other scenarios often found:
+
+- The `127.0.0.1` issue with the solution: listen on `0.0.0.0`
+- Taking a pod offline for debugging (remove label, drops from service)
 
 References:
 
