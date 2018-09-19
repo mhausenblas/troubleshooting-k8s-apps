@@ -1,0 +1,33 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: wheresmyvolume
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: wheresmyvolume
+    spec:
+      containers:
+        - name: writer
+          image: centos:7
+          command:
+            - sh
+            - '-c'
+            - "printf 'some important data to persist' > /tmp/out/data; sleep 10000"
+          volumeMounts:
+            - name: xchange
+              mountPath: /tmp/out
+        - name: reader
+          image: centos:7
+          command:
+            - sh
+            - '-c'
+            - "cat /tmp/in/data; sleep 10000"
+          volumeMounts:
+            - name: xchange
+              mountPath: /tmp/in
+      volumes:
+      - name: xchange
+        emptyDir: {}

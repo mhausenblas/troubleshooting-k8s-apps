@@ -103,7 +103,24 @@ References:
 
 ## Storage
 
-Show failed mount
+Using [04_storage-failedmount.yaml](04_storage-failedmount.yaml) and [04_storage-failedmount-fixed.yaml](04_storage-failedmount-fixed.yaml): 
+
+```
+kubectl -n vnyc apply -f 04_storage-failedmount.yaml
+
+# has the data been written?
+kubectl -n vnyc exec -it $(kubectl -n vnyc get po -l=app=wheresmyvolume --output=jsonpath={.items[*].metadata.name}) -c writer -- cat /tmp/out/data
+
+# has the data been read in?
+kubectl -n vnyc exec -it $(kubectl -n vnyc get po -l=app=wheresmyvolume --output=jsonpath={.items[*].metadata.name}) -c reader -- cat /tmp/in/data
+
+kubectl -n vnyc describe po $(kubectl -n vnyc get po -l=app=wheresmyvolume --output=jsonpath={.items[*].metadata.name})
+
+kubectl -n vnyc apply -f 04_storage-failedmount-fixed.yaml
+
+kubectl -n vnyc delete deploy wheresmyvolume
+```
+
 
 References:
 
