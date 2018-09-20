@@ -191,7 +191,7 @@ From metrics to logs to tracing.
 
 Show [Linkerd 2.0 in action](https://medium.com/@mhausenblas/linkerd-2-0-service-ops-for-you-and-me-281cc5bd6424).
 
-## Distributed tracing
+### Distributed tracing
 
 Show [Jaeger 1.6 in action](https://www.jaegertracing.io/docs/1.6/getting-started/).
 
