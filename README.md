@@ -11,7 +11,7 @@ _Where?_ &nbsp;&nbsp; Beekman/Sutton North <br />
 [Observability](#observability) | [Vaccination](#vaccination) | [References](#references)
 
 
-The slide deck is available [here](http://dev/null) and to demonstrate the different failures and how to fix them I'm using the following commands.
+The slide deck is available [here](http://dev/null) and to demonstrate the different failures and how to fix them I'm using the following commands. Note that when you see a &#128196; icon it means a reference to the official Kubernetes [docs](https://kubernetes.io/docs/).
 
 ## Preparation
 
@@ -153,12 +153,10 @@ Other scenarios often found:
 
 References:
 
-- DOCS: [Debug Services](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-service/)
+- [Debug Services](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-service/) &#128196;
 - [Troubleshooting Kubernetes Networking Issues](https://gravitational.com/blog/troubleshooting-kubernetes-networking/)
 
 ## Security
-
-Show missing permissions and `can-i`
 
 ```
 kubectl -n vnyc create sa prober
@@ -169,33 +167,40 @@ export CURL_CA_BUNDLE=/var/run/secrets/kubernetes.io/serviceaccount/ca.crt
 APISERVERTOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
 curl -H "Authorization: Bearer $APISERVERTOKEN"  https://kubernetes.default/api/v1/namespaces/vnyc/pods
 
-# different pane, set permissions right:
-kubectl -n vnyc create clusterrole podreader \
+# different tmux pane, verify if the SA actually is allowed to:
+kubectl -n vnyc auth can-i list pods --as=system:serviceaccount:vnyc:prober
+
+# … seems not to be the cases, so give sufficient permissions:
+kubectl create clusterrole podreader \
         --verb=get --verb=list \
-        --resource=pods --namespace=vnyc
+        --resource=pods
 
 kubectl -n vnyc create rolebinding allowpodprobes \
-        --role=podreader \
+        --clusterrole=podreader \
         --serviceaccount=vnyc:prober \
         --namespace=vnyc
-
 ```
 
 References see [kubernetes-security.info](https://kubernetes-security.info/).
 
 ## Observability
 
+From metrics to logs to tracing.
+
 ### Service ops in practice
 
-[Linkerd 2.0 in action](https://medium.com)
+Show [Linkerd 2.0 in action](https://medium.com/@mhausenblas/linkerd-2-0-service-ops-for-you-and-me-281cc5bd6424).
 
 ## Distributed tracing
 
-Show Jaeger 101.
+Show [Jaeger 1.6 in action](https://www.jaegertracing.io/docs/1.6/getting-started/).
 
 References:
 
+- [Logs and Metrics](https://medium.com/@copyconstruct/logs-and-metrics-6d34d3026e38)
 - [Evolution of Monitoring and Prometheus](https://www.slideshare.net/brianbrazil/evolution-of-monitoring-and-prometheus-dublin-2018)
+- [The life of a span](https://medium.com/jaegertracing/the-life-of-a-span-ee508410200b)
+- OpenShift Commons Briefing #82: [Distributed Tracing with Jaeger & Prometheus on Kubernetes](https://blog.openshift.com/openshift-commons-briefing-82-distributed-tracing-with-jaeger-prometheus-on-kubernetes/)
 
 ## Vaccination
 
@@ -207,15 +212,14 @@ References:
 - [Kubernetes Best Practices](https://medium.com/google-cloud/kubernetes-best-practices-8d5cd03446e2)
 - [Developing on Kubernetes](https://kubernetes.io/blog/2018/05/01/developing-on-kubernetes/)
 - [Kubernetes Application Operator Basics](https://blog.openshift.com/kubernetes-application-operator-basics/) 
-- Tooling
-  - [chaoskube](https://github.com/linki/chaoskube)
+- [chaoskube](https://github.com/linki/chaoskube), for example see [using chaoskube with OpenEBS](https://blog.openebs.io/chaos-engineering-on-openebs-7d4e0f995545)
 
 ## References
 
 ### Basics
 
-- DOCS: [Troubleshoot Applications](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/)
-- DOCS: [Troubleshoot Clusters](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-cluster/)
+- [Troubleshoot Applications](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/) &#128196;
+- [Troubleshoot Clusters](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-cluster/) &#128196;
 - A site dedicated to [Kubernetes Troubleshooting](https://kubernetes.feisky.xyz/en/troubleshooting/) 
 - [Debug a Go Application in Kubernetes from IDE](https://itnext.io/debug-a-go-application-in-kubernetes-from-ide-c45ad26d8785)
 - CrashLoopBackoff, Pending, FailedMount and Friends: Debugging Common Kubernetes Cluster (KubeCon NA 2017): [video](https://www.youtube.com/watch?v=7FOCG5kua1w) and [slide deck](https://afontofuseless.info/debugging-kubernetes-app-deploys-kc2017/)
