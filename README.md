@@ -15,12 +15,13 @@ The slide deck is available [here](http://dev/null) and to demonstrate the diffe
 
 ## Preparation
 
-Before the talk:
+Before the talk, set up:
 
 ```
+# create the namespace we'll be operating on:
 kubectl create ns vnyc
 
-# in different tmux pane:
+# in different tmux pane keep an eye on the resources:
 watch kubectl -n vnyc get all
 ```
 
@@ -58,6 +59,11 @@ kubectl -n vnyc patch deployment confused-imager  \
 kubectl -n vnyc delete deploy/confused-imager
 ```
 
+Relevant real-world examples on StackOverflow:
+
+- [Kubernetes imagePullSecrets not working; getting “image not found”](https://stackoverflow.com/questions/32510310/kubernetes-imagepullsecrets-not-working-getting-image-not-found)
+- [Trying to create a Kubernetes deployment but it shows 0 pods available](https://stackoverflow.com/questions/51139988/trying-to-create-a-kubernetes-deployment-but-it-shows-0-pods-available)
+
 ### Keeps crashing
 
 Using [02_pp_oomer.yaml](02_pp_oomer.yaml) and [02_pp_oomer-fixed.yaml](02_pp_oomer-fixed.yaml):
@@ -76,6 +82,10 @@ kubectl -n vnyc exec -it $(kubectl -n vnyc get po -l=app=oomer --output=jsonpath
 kubectl -n vnyc delete deploy wegotan-oomer
 ```
 
+Relevant real-world examples on StackOverflow: 
+
+- [InfluxDB container dies over time, and can't restart](https://stackoverflow.com/questions/37877432/influxdb-container-dies-over-time-and-cant-restart)
+
 ### Something's wrong with the app
 
 Using [03_pp_logs.yaml](03_pp_logs.yaml): 
@@ -91,6 +101,13 @@ kubectl -n vnyc logs --follow $(kubectl -n vnyc get po -l=app=hiccup --output=js
 
 kubectl -n vnyc delete deploy hiccup
 ```
+
+Relevant real-world examples on StackOverflow: 
+
+- [My kubernetes pods keep crashing with “CrashLoopBackOff” but I can't find any log](https://stackoverflow.com/questions/41604499/my-kubernetes-pods-keep-crashing-with-crashloopbackoff-but-i-cant-find-any-lo)
+- [Kubernetes Readiness probe failed error](https://stackoverflow.com/questions/48540929/kubernetes-readiness-probe-failed-error)
+
+### Pod lifecycle
 
 ![pod lifecycle](img/pod-lifecycle-inline.png)
 Download [in original resolution](https://github.com/mhausenblas/troubleshooting-k8s-apps/raw/master/img/pod-lifecycle.png).
@@ -120,6 +137,10 @@ kubectl -n vnyc apply -f 04_storage-failedmount-fixed.yaml
 
 kubectl -n vnyc delete deploy wheresmyvolume
 ```
+
+Relevant real-world examples on StackOverflow: 
+
+- TBD
 
 References:
 
@@ -151,6 +172,10 @@ Other scenarios often found:
 - Missing firewall rules, from cluster-internal open ports to communication between clusters can cause all kinds of issues. It very much depends on the environment (AWS, Azure, GCP, on-premises, etc.) how exactly you go about it and most certainly is an infra admin task rather than an appops task.
 - Taking a pod offline for debugging: on the pod, simply remove the relevant label(s) the service uses in its `selector` and that removes the pod from the pool of endpoints the service has to serve traffic to while leaving the pod running, ready for you to `kubectl exec -it` in.
 
+Relevant real-world examples on StackOverflow: 
+
+- TBD
+
 References:
 
 - [Debug Services](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-service/) &#128196;
@@ -180,6 +205,10 @@ kubectl -n vnyc create rolebinding allowpodprobes \
         --serviceaccount=vnyc:prober \
         --namespace=vnyc
 ```
+
+Relevant real-world examples on StackOverflow: 
+
+- TBD
 
 References see [kubernetes-security.info](https://kubernetes-security.info/).
 
