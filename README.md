@@ -127,8 +127,6 @@ References:
 
 ## Network
 
-Wrong selector:
-
 Using [05_network-wrongsel.yaml](05_network-wrongsel.yaml) and [05_network-wrongsel-fixed.yaml](05_network-wrongsel-fixed.yaml): 
 
 ```
@@ -149,8 +147,9 @@ kubectl -n vnyc delete deploy webserver
 
 Other scenarios often found:
 
-- The `127.0.0.1` issue with the solution: listen on `0.0.0.0`
-- Taking a pod offline for debugging (remove label, drops from service)
+- See an error message that says something like `connection refused`? You could be hitting the `127.0.0.1` issue—for example as seen in [this](https://stackoverflow.com/questions/48597726/connection-refused-error-when-connecting-to-kubernetes-redis-service/) StackOverflow question—with the solution to make the app listen on `0.0.0.0` rather than on localhost. Further, see also some discussion [here](https://superuser.com/questions/949428/whats-the-difference-between-127-0-0-1-and-0-0-0-0).
+- Missing firewall rules, from cluster-internal open ports to communication between clusters can cause all kinds of issues. It very much depends on the environment (AWS, Azure, GCP, on-premises, etc.) how exactly you go about it and most certainly is an infra admin task rather than an appops task.
+- Taking a pod offline for debugging: on the pod, simply remove the relevant label(s) the service uses in its `selector` and that removes the pod from the pool of endpoints the service has to serve traffic to while leaving the pod running, ready for you to `kubectl exec -it` in.
 
 References:
 
@@ -160,6 +159,27 @@ References:
 ## Security
 
 Show missing permissions and `can-i`
+
+```
+kubectl -n vnyc create sa prober
+kubectl -n vnyc run -it --rm probepod --serviceaccount=prober --restart=Never --image=centos:7 -- sh
+
+# in the container; will result in an 403, b/c we don't have the permissions necessary:
+export CURL_CA_BUNDLE=/var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+APISERVERTOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
+curl -H "Authorization: Bearer $APISERVERTOKEN"  https://kubernetes.default/api/v1/namespaces/vnyc/pods
+
+# different pane, set permissions right:
+kubectl -n vnyc create clusterrole podreader \
+        --verb=get --verb=list \
+        --resource=pods --namespace=vnyc
+
+kubectl -n vnyc create rolebinding allowpodprobes \
+        --role=podreader \
+        --serviceaccount=vnyc:prober \
+        --namespace=vnyc
+
+```
 
 References see [kubernetes-security.info](https://kubernetes-security.info/).
 
