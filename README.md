@@ -110,7 +110,7 @@ Relevant real-world examples on StackOverflow:
 ### Pod lifecycle
 
 ![pod lifecycle](img/pod-lifecycle-inline.png)
-Download [in original resolution](https://github.com/mhausenblas/troubleshooting-k8s-apps/raw/master/img/pod-lifecycle.png).
+_Download [in original resolution](https://github.com/mhausenblas/troubleshooting-k8s-apps/raw/master/img/pod-lifecycle.png)._
 
 References:
 
@@ -140,7 +140,8 @@ kubectl -n vnyc delete deploy wheresmyvolume
 
 Relevant real-world examples on StackOverflow: 
 
-- TBD
+- [How to find out why mounting an emptyDir volume fails in Kubernetes?](https://stackoverflow.com/questions/51206154/how-to-find-out-why-mounting-an-emptydir-volume-fails-in-kubernetes)
+- [Kubernetes NFS volume mount fail with exit status 32](https://stackoverflow.com/questions/34113569/kubernetes-nfs-volume-mount-fail-with-exit-status-32)
 
 References:
 
@@ -195,7 +196,7 @@ curl -H "Authorization: Bearer $APISERVERTOKEN"  https://kubernetes.default/api/
 # different tmux pane, verify if the SA actually is allowed to:
 kubectl -n vnyc auth can-i list pods --as=system:serviceaccount:vnyc:prober
 
-# … seems not to be the cases, so give sufficient permissions:
+# … seems not to be the case, so give sufficient permissions:
 kubectl create clusterrole podreader \
         --verb=get --verb=list \
         --resource=pods
