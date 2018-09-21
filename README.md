@@ -234,7 +234,7 @@ References:
 - [Logs and Metrics](https://medium.com/@copyconstruct/logs-and-metrics-6d34d3026e38)
 - [Evolution of Monitoring and Prometheus](https://www.slideshare.net/brianbrazil/evolution-of-monitoring-and-prometheus-dublin-2018)
 - [The life of a span](https://medium.com/jaegertracing/the-life-of-a-span-ee508410200b)
-- OpenShift Commons Briefing #82: [Distributed Tracing with Jaeger & Prometheus on Kubernetes](https://blog.openshift.com/openshift-commons-briefing-82-distributed-tracing-with-jaeger-prometheus-on-kubernetes/)
+- [Distributed Tracing with Jaeger & Prometheus on Kubernetes](https://blog.openshift.com/openshift-commons-briefing-82-distributed-tracing-with-jaeger-prometheus-on-kubernetes/)
 
 ## Vaccination
 
