@@ -212,7 +212,8 @@ kubectl -n vnyc create rolebinding allowpodprobes \
 
 Relevant real-world examples on StackOverflow: 
 
-- TBD
+- [Accessing Kubernetes API from pod fails although roles are configured is configured](https://stackoverflow.com/questions/52095161/accessing-kubernetes-api-from-pod-fails-although-roles-are-configured-is-configu)
+- [How to deploy a deployment in another namespace in Kubernetes?](https://stackoverflow.com/questions/52297676/how-to-deploy-a-deployment-in-another-namespace-in-kubernetes/52298101#52298101)
 
 References see [kubernetes-security.info](https://kubernetes-security.info/).
 
