@@ -3,6 +3,10 @@
 
 @import "{{ site.theme }}";
 
+table {
+    background-color: #f0f0f0;
+}
+
 th, td {
     font-size: 16px;
     font-weight: 600;
