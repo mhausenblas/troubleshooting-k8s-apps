@@ -4,9 +4,16 @@
 @import "{{ site.theme }}";
 
 th, td {
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 600;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     padding: 10px;
     background: unset;
+    text-align: center;
+}
+
+table {
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
 }
