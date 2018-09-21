@@ -5,10 +5,10 @@ A talk at [Velocity NYC 2018](https://conferences.oreilly.com/velocity/vl-ny/pub
 _When?_  &nbsp;&nbsp;&nbsp; Wednesday Oct 3, 1:30pm (40min) <br />
 _Where?_ &nbsp;&nbsp; Beekman/Sutton North <br />
 
-<a href="#preparation" target="_self">Preparation</a> | [Intro](#intro)             | [Poking Pods](#poking-pods)
----                             | ---                         | ---
-[Storage](#storage)             | [Network](#network)         | [Security](#security) 
-[Observability](#observability) | [Vaccination](#vaccination) | [References](#references)
+<a href="#preparation" target="_self">Preparation</a> | <a href="#intro" target="_self">Intro</a> | <a href="#poking-pods" target="_self">Poking Pods</a>
+--- | --- | ---
+<a href="#storage" target="_self">Storage</a> | <a href="#network" target="_self">Network</a> | <a href="#security" target="_self">Security</a>
+<a href="#observability" target="_self">Observability</a> | <a href="#vaccination" target="_self">Vaccination</a> | <a href="#references" target="_self">References</a>
 
 
 The slide deck is available [here](http://dev/null) and to demonstrate the different failures and how to fix them I'm using the following commands. Note that when you see a &#128196; icon it means a reference to the official Kubernetes [docs](https://kubernetes.io/docs/).
