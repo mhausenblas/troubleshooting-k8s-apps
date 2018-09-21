@@ -169,12 +169,13 @@ kubectl -n vnyc delete deploy webserver
 
 Other scenarios often found:
 
-- See an error message that says something like `connection refused`? You could be hitting the `127.0.0.1` issue—for example as seen in [this](https://stackoverflow.com/questions/48597726/connection-refused-error-when-connecting-to-kubernetes-redis-service/) StackOverflow question—with the solution to make the app listen on `0.0.0.0` rather than on localhost. Further, see also some discussion [here](https://superuser.com/questions/949428/whats-the-difference-between-127-0-0-1-and-0-0-0-0).
+- See an error message that says something like `connection refused`? You could be hitting the `127.0.0.1` issue with the solution to make the app listen on `0.0.0.0` rather than on localhost. Further, see also some discussion [here](https://superuser.com/questions/949428/whats-the-difference-between-127-0-0-1-and-0-0-0-0).
 - Missing firewall rules, from cluster-internal open ports to communication between clusters can cause all kinds of issues. It very much depends on the environment (AWS, Azure, GCP, on-premises, etc.) how exactly you go about it and most certainly is an infra admin task rather than an appops task.
 - Taking a pod offline for debugging: on the pod, simply remove the relevant label(s) the service uses in its `selector` and that removes the pod from the pool of endpoints the service has to serve traffic to while leaving the pod running, ready for you to `kubectl exec -it` in.
 
 Relevant real-world examples on StackOverflow: 
 
+- [Connection Refused error when connecting to Kubernetes Redis Service](https://stackoverflow.com/questions/48597726/connection-refused-error-when-connecting-to-kubernetes-redis-service/) StackOverflow question—
 - [“kubectl get pods” showing STATUS - ImagePullbackOff](https://stackoverflow.com/questions/51164795/kubectl-get-pods-showing-status-imagepullbackoff)
 - [Service not exposing in kubernetes](https://stackoverflow.com/questions/51662015/service-not-exposing-in-kubernetes)
 - [Kubernetes: Can not curl minikube pod](https://stackoverflow.com/questions/52289583/kubernetes-can-not-curl-minikube-pod/52289956)
