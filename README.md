@@ -175,7 +175,7 @@ Other scenarios often found:
 
 Relevant real-world examples on StackOverflow: 
 
-- [Connection Refused error when connecting to Kubernetes Redis Service](https://stackoverflow.com/questions/48597726/connection-refused-error-when-connecting-to-kubernetes-redis-service/) StackOverflow question—
+- [Connection Refused error when connecting to Kubernetes Redis Service](https://stackoverflow.com/questions/48597726/connection-refused-error-when-connecting-to-kubernetes-redis-service/)
 - [“kubectl get pods” showing STATUS - ImagePullbackOff](https://stackoverflow.com/questions/51164795/kubectl-get-pods-showing-status-imagepullbackoff)
 - [Service not exposing in kubernetes](https://stackoverflow.com/questions/51662015/service-not-exposing-in-kubernetes)
 - [Kubernetes: Can not curl minikube pod](https://stackoverflow.com/questions/52289583/kubernetes-can-not-curl-minikube-pod/52289956)
