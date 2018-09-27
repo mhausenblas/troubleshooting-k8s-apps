@@ -223,11 +223,11 @@ From metrics to logs to tracing.
 
 ### Service ops in practice
 
-Show [Linkerd 2.0 in action](https://medium.com/@mhausenblas/linkerd-2-0-service-ops-for-you-and-me-281cc5bd6424) using [this Katacoda](https://www.katacoda.com/mhausenblas/scenarios/linkerd2) as a starting point.
+Show [Linkerd 2.0 in action](https://medium.com/@mhausenblas/linkerd-2-0-service-ops-for-you-and-me-281cc5bd6424) using [this Katacoda scenario](https://www.katacoda.com/mhausenblas/scenarios/linkerd2) as a starting point.
 
 ### Distributed tracing
 
-Show [Jaeger 1.6 in action](https://www.jaegertracing.io/docs/1.6/getting-started/).
+Show [Jaeger 1.6 in action](https://www.jaegertracing.io/docs/1.6/getting-started/) using [this Katacoda scenario](https://katacoda.com/opentracing/scenarios/golang-hotrod-demo).
 
 References:
 
