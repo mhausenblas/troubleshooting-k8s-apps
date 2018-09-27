@@ -223,7 +223,7 @@ From metrics to logs to tracing.
 
 ### Service ops in practice
 
-Show [Linkerd 2.0 in action](https://medium.com/@mhausenblas/linkerd-2-0-service-ops-for-you-and-me-281cc5bd6424).
+Show [Linkerd 2.0 in action](https://medium.com/@mhausenblas/linkerd-2-0-service-ops-for-you-and-me-281cc5bd6424) using [this Katacoda](https://www.katacoda.com/mhausenblas/scenarios/linkerd2) as a starting point.
 
 ### Distributed tracing
 
