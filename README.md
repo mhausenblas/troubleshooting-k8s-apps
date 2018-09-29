@@ -246,7 +246,10 @@ References:
 - [Kubernetes Best Practices](https://medium.com/google-cloud/kubernetes-best-practices-8d5cd03446e2)
 - [Developing on Kubernetes](https://kubernetes.io/blog/2018/05/01/developing-on-kubernetes/)
 - [Kubernetes Application Operator Basics](https://blog.openshift.com/kubernetes-application-operator-basics/) 
-- [chaoskube](https://github.com/linki/chaoskube), for example see [using chaoskube with OpenEBS](https://blog.openebs.io/chaos-engineering-on-openebs-7d4e0f995545)
+- [Using chaoskube with OpenEBS](https://blog.openebs.io/chaos-engineering-on-openebs-7d4e0f995545)
+- Tooling:
+  - [linki/chaoskube](https://github.com/linki/chaoskube)
+  - [asobti/kube-monkey](https://github.com/asobti/kube-monkey)
 
 ## References
 
