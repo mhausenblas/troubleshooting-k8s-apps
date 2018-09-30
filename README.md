@@ -243,32 +243,31 @@ Show [chaoskube](https://github.com/linki/chaoskube) in action, killing off rand
 We have the following setup:
 
 ```
-                                                          +----------------+
-                                                          |                |
-                                                 +------> | webserver/pod1 |
-                                                 |        |                |
-+----------------+                               |        +----------------+
-|                |                               |        +----------------+
-| appserver/pod1 +--------+         +---------+  |        |                |
-|                |        |      +--+         |  +------> | webserver/pod2 |
-+----------------+        |     X             |  |        |                |
-                          |    X              |  |        +----------------+
-                          |   X               |  |        +----------------+
-                          v  X                |  |        |                |
-                            X   svc/webserver +---------> | webserver/pod3 |
-                          ^  X                |  |        |                |
-+----------------+        |   X               |  |        +----------------+
-|                |        |    X              |  |        +----------------+
-| appserver/pod2 +--------+     X             |  |        |                |
-|                |              +--+          |  +------> | webserver/pod4 |
-+----------------+                 +----------+  |        |                |
-                                                 |        +----------------+
-                                                 |        +----------------+
-                                                 |        |                |
-                                                 +------> | webserver/pod5 |
-                                                          |                |
-                                                          +----------------+
-
+                                                         +----------------+   
+                                                         |                |   
+                                                 +-----> | webserver/pod1 |   
+                                                 |       |                |   
++----------------+                               |       +----------------+   
+|                |                               |       +----------------+   
+| appserver/pod1 +--------+         +---------+  |       |                |   
+|                |        |      +--+         |  +-----> | webserver/pod2 |   
++----------------+        |     X             |  |       |                |   
+                          |    X              |  |       +----------------+   
+                          |   X               |  |       +----------------+   
+                          v  X                |  |       |                |   
+                            X   svc/webserver +--------> | webserver/pod3 |   
+                          ^  X                |  |       |                |   
++----------------+        |   X               |  |       +----------------+   
+|                |        |    X              |  |       +----------------+   
+| appserver/pod2 +--------+     X             |  |       |                |   
+|                |              +--+          |  +-----> | webserver/pod4 |   
++----------------+                 +----------+  |       |                |   
+                                                 |       +----------------+   
+                                                 |       +----------------+   
+                                                 |       |                |   
+                                                 +-----> | webserver/pod5 |   
+                                                         |                |   
+                                                         +----------------+   
 ```
 
 That is, a `webserver` running with five replicas along with a service as well as an `appserver` running with two replicas that queries said service.
