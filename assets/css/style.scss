@@ -36,7 +36,11 @@ p small {
    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-pre.highlight code {
+pre code {
     color: #10de10;
+    font-size: smaller;
+}
+
+pre.highlight {
     background-color: black;
 }
