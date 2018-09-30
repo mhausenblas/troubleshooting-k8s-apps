@@ -238,12 +238,47 @@ References:
 
 ## Vaccination
 
-Show [chaoskube](https://github.com/linki/chaoskube) in action, killing off random pods in the `vnyc` namespace:
+Show [chaoskube](https://github.com/linki/chaoskube) in action, killing off random pods in the `vnyc` namespace.
+
+We have the following setup:
 
 ```
-# let's create our vicitms:
-kubectl -n vnyc run webserver --image nginx --port 80 --replicas 3
-kubectl -n vnyc run appserver --image centos:7 --replicas 6 -- sh sleep 1000
+                                                          +----------------+
+                                                          |                |
+                                                 +------> | webserver/pod1 |
+                                                 |        |                |
++----------------+                               |        +----------------+
+|                |                               |        +----------------+
+| appserver/pod1 +--------+         +---------+  |        |                |
+|                |        |      +--+         |  +------> | webserver/pod2 |
++----------------+        |     X             |  |        |                |
+                          |    X              |  |        +----------------+
+                          |   X               |  |        +----------------+
+                          v  X                |  |        |                |
+                            X   svc/webserver +---------> | webserver/pod3 |
+                          ^  X                |  |        |                |
++----------------+        |   X               |  |        +----------------+
+|                |        |    X              |  |        +----------------+
+| appserver/pod2 +--------+     X             |  |        |                |
+|                |              +--+          |  +------> | webserver/pod4 |
++----------------+                 +----------+  |        |                |
+                                                 |        +----------------+
+                                                 |        +----------------+
+                                                 |        |                |
+                                                 +------> | webserver/pod5 |
+                                                          |                |
+                                                          +----------------+
+
+```
+
+That is, a `webserver` running with five replicas along with a service as well as an `appserver` running with two replicas that queries said service.
+
+```
+# let's create our victims, that is webservers and appservers:
+kubectl -n vnyc run webserver --image nginx --port 80 --replicas 5
+kubectl -n vnyc expose deploy/webserver
+kubectl -n vnyc run appserver --image centos:7 --replicas 2 -- sh -c "while true; do curl webserver ; sleep 10 ; done"
+kubectl -n vnyc logs deploy/appserver --follow
 
 # also keep on the events generated: 
 kubectl -n vnyc get events --watch
@@ -256,6 +291,10 @@ chaoskube \
 
 kubectl delete ns vnyc
 ```
+
+And here's a screen shot of `chaoskube` in action, with all the above commands applied:
+
+![screen shot of chaoskube in action](img/chaoskube-in-action.png)
 
 References:
 
