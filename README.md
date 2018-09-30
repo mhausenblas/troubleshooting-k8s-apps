@@ -75,13 +75,16 @@ Relevant real-world examples on StackOverflow:
 Using [02_pp_oomer.yaml](02_pp_oomer.yaml) and [02_pp_oomer-fixed.yaml](02_pp_oomer-fixed.yaml):
 
 ```
+# prepare a greedy fellow:
 kubectl -n vnyc apply -f 02_pp_oomer.yaml
 kubectl -n vnyc exec -it $(kubectl -n vnyc get po -l=app=oomer --output=jsonpath={.items[*].metadata.name}) -c greedymuch -- cat /sys/fs/cgroup/memory/memory.limit_in_bytes /sys/fs/cgroup/memory/memory.usage_in_bytes
 
-# wait > 5s
+# wait > 5s and then:
 kubectl -n vnyc describe po $(kubectl -n vnyc get po -l=app=oomer --output=jsonpath={.items[*].metadata.name})
 
+# fix the issue:
 kubectl -n vnyc apply -f 02_pp_oomer-fixed.yaml
+
 # wait > 20s
 kubectl -n vnyc exec -it $(kubectl -n vnyc get po -l=app=oomer --output=jsonpath={.items[*].metadata.name}) -c greedymuch -- cat /sys/fs/cgroup/memory/memory.limit_in_bytes /sys/fs/cgroup/memory/memory.usage_in_bytes
 
@@ -91,6 +94,7 @@ kubectl -n vnyc delete deploy wegotan-oomer
 Relevant real-world examples on StackOverflow: 
 
 - [InfluxDB container dies over time, and can't restart](https://stackoverflow.com/questions/37877432/influxdb-container-dies-over-time-and-cant-restart)
+- [AWS deployment with kubernetes 1.7.2 continuously running in pod getting killed and restarted](https://stackoverflow.com/questions/47849502/aws-deployment-with-kubernetes-1-7-2-continuously-running-in-pod-getting-killed)
 
 ### Something's wrong with the app
 
