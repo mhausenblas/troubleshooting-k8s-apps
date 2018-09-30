@@ -4,6 +4,10 @@ A talk at [Velocity NYC 2018](https://conferences.oreilly.com/velocity/vl-ny/pub
 
 _When?_  &nbsp;&nbsp;&nbsp; Wednesday Oct 3, 1:30pm (40min) <br />
 _Where?_ &nbsp;&nbsp; Beekman/Sutton North <br />
+_What?_  &nbsp;&nbsp;&nbsp;&nbsp; Debugging and fixing Kubernetes applications for appops
+
+_Table of contents:_
+
 
 <a href="#preparation" target="_self">Preparation</a> | <a href="#intro" target="_self">Intro</a> | <a href="#poking-pods" target="_self">Poking Pods</a>
 --- | --- | ---
@@ -11,14 +15,16 @@ _Where?_ &nbsp;&nbsp; Beekman/Sutton North <br />
 <a href="#observability" target="_self">Observability</a> | <a href="#vaccination" target="_self">Vaccination</a> | <a href="#references" target="_self">References</a>
 
 
-The slide deck is available [here](http://dev/null) and to demonstrate the different failures and how to fix them I'm using the following commands. Note that when you see a &#128196; icon it means a reference to the official Kubernetes [docs](https://kubernetes.io/docs/).
+The slide deck is available [here](https://speakerdeck.com/mhausenblas/) and to demonstrate the different failures and how to fix them I'm using the commands as shown below. 
+
+_NOTE_: whenever you see a &#128196; icon, it means this is a reference to the official Kubernetes [docs](https://kubernetes.io/docs/).
 
 ## Preparation
 
 Before the talk, set up:
 
 ```
-# create the namespace we'll be operating on:
+# create the namespace we'll be operating in:
 kubectl create ns vnyc
 
 # in different tmux pane keep an eye on the resources:
