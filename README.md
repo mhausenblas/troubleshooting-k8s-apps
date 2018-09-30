@@ -238,7 +238,24 @@ References:
 
 ## Vaccination
 
-Show chaoskube in action.
+Show [chaoskube](https://github.com/linki/chaoskube) in action, killing off random pods in the `vnyc` namespace:
+
+```
+# let's create our vicitms:
+kubectl -n vnyc run webserver --image nginx --port 80 --replicas 3
+kubectl -n vnyc run appserver --image centos:7 --replicas 6 -- sh sleep 1000
+
+# also keep on the events generated: 
+kubectl -n vnyc get events --watch
+
+# now release the chaos monkey:
+chaoskube \
+    --interval 30s \
+    --namespaces 'vnyc' \
+    --no-dry-run
+
+kubectl delete ns vnyc
+```
 
 References:
 
@@ -250,6 +267,9 @@ References:
 - Tooling:
   - [linki/chaoskube](https://github.com/linki/chaoskube)
   - [asobti/kube-monkey](https://github.com/asobti/kube-monkey)
+  - [bloomberg/powerfulseal](https://github.com/bloomberg/powerfulseal)
+  - [AlexsJones/k8aos](https://github.com/AlexsJones/k8aos)
+  - [jnewland/kubernetes-pod-chaos-monkey](https://github.com/jnewland/kubernetes-pod-chaos-monkey)
 
 ## References
 
