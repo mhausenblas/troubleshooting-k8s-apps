@@ -9,7 +9,7 @@ _What?_  &nbsp;&nbsp;&nbsp;&nbsp; Debugging and fixing Kubernetes applications f
 _Table of contents:_
 
 
-<a href="#preparation" target="_self">Preparation</a> | <a href="#intro" target="_self">Intro</a> | <a href="#poking-pods" target="_self">Poking Pods</a>
+<a href="#preparation" target="_self">Preparation</a> | <a href="#intro" target="_self">Intro</a> | <a href="#poking-pods" target="_self">Poking pods</a>
 --- | --- | ---
 <a href="#storage" target="_self">Storage</a> | <a href="#network" target="_self">Network</a> | <a href="#security" target="_self">Security</a>
 <a href="#observability" target="_self">Observability</a> | <a href="#vaccination" target="_self">Vaccination</a> | <a href="#references" target="_self">References</a>
@@ -48,7 +48,13 @@ kubectl -n vnyc exec -it $THEPOD -- sh
 kubectl -n vnyc delete deploy/unhappy-camper
 ```
 
-## Poking Pods
+## Poking pods
+
+### Pod lifecycle
+
+![pod lifecycle](img/pod-lifecycle-inline.png)
+_Download [in original resolution](https://github.com/mhausenblas/troubleshooting-k8s-apps/raw/master/img/pod-lifecycle.png)._
+
 
 ### Image issue
 
@@ -116,11 +122,6 @@ Relevant real-world examples on StackOverflow:
 
 - [My kubernetes pods keep crashing with “CrashLoopBackOff” but I can't find any log](https://stackoverflow.com/questions/41604499/my-kubernetes-pods-keep-crashing-with-crashloopbackoff-but-i-cant-find-any-lo)
 - [Kubernetes Readiness probe failed error](https://stackoverflow.com/questions/48540929/kubernetes-readiness-probe-failed-error)
-
-### Pod lifecycle
-
-![pod lifecycle](img/pod-lifecycle-inline.png)
-_Download [in original resolution](https://github.com/mhausenblas/troubleshooting-k8s-apps/raw/master/img/pod-lifecycle.png)._
 
 References:
 
