@@ -239,9 +239,13 @@ From metrics to logs to tracing.
 
 Show [Linkerd 2.0 in action](https://medium.com/@mhausenblas/linkerd-2-0-service-ops-for-you-and-me-281cc5bd6424) using [this Katacoda scenario](https://www.katacoda.com/mhausenblas/scenarios/linkerd2) as a starting point.
 
+![Screen shot of Linkerd 2.0 dashboard](img/linkerd2-overview.png)
+
 ### Distributed tracing
 
 Show [Jaeger 1.6 in action](https://www.jaegertracing.io/docs/1.6/getting-started/) using [this Katacoda scenario](https://katacoda.com/opentracing/scenarios/golang-hotrod-demo).
+
+![Screen shot of Jaeger 1.6](img/jaeger-overview.png)
 
 References:
 
