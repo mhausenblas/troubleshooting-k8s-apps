@@ -15,7 +15,7 @@ _Table of contents:_
 <a href="#observability" target="_self">Observability</a> | <a href="#vaccination" target="_self">Vaccination</a> | <a href="#references" target="_self">References</a>
 
 
-The slide deck is available [here](https://speakerdeck.com/mhausenblas/) and to demonstrate the different failures and how to fix them I'm using the commands as shown below. 
+You might want to check out [the slide deck](https://speakerdeck.com/mhausenblas/troubleshooting-kubernetes-applications) used in the talk. To demonstrate the different issues and failures as well as how to fix them, I've been using the commands and resources as shown below. 
 
 _NOTE_: whenever you see a &#128196; icon, it means this is a reference to the official Kubernetes [docs](https://kubernetes.io/docs/).
 
