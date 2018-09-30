@@ -219,6 +219,9 @@ kubectl -n vnyc create rolebinding allowpodprobes \
         --clusterrole=podreader \
         --serviceaccount=vnyc:prober \
         --namespace=vnyc
+
+# clean up
+kubectl delete clusterrole podreader && kubectl delete ns vnyc
 ```
 
 Relevant real-world examples on StackOverflow: 
@@ -285,6 +288,7 @@ That is, a `webserver` running with five replicas along with a service as well a
 
 ```
 # let's create our victims, that is webservers and appservers:
+kubectl create ns vnyc
 kubectl -n vnyc run webserver --image nginx --port 80 --replicas 5
 kubectl -n vnyc expose deploy/webserver
 kubectl -n vnyc run appserver --image centos:7 --replicas 2 -- sh -c "while true; do curl webserver ; sleep 10 ; done"
