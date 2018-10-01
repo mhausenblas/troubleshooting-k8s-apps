@@ -8,7 +8,6 @@ _What?_  &nbsp;&nbsp;&nbsp;&nbsp; Debugging and fixing Kubernetes applications f
 
 _Table of contents:_
 
-
 <a href="#preparation" target="_self">Preparation</a> | <a href="#intro" target="_self">Intro</a> | <a href="#poking-pods" target="_self">Poking pods</a>
 --- | --- | ---
 <a href="#storage" target="_self">Storage</a> | <a href="#network" target="_self">Network</a> | <a href="#security" target="_self">Security</a>
@@ -73,6 +72,7 @@ kubectl -n vnyc delete deploy/confused-imager
 
 Relevant real-world examples on StackOverflow:
 
+- [Kubernetes how to debug CrashLoopBackoff](https://stackoverflow.com/questions/44673957/kubernetes-how-to-debug-crashloopbackoff)
 - [Kubernetes imagePullSecrets not working; getting “image not found”](https://stackoverflow.com/questions/32510310/kubernetes-imagepullsecrets-not-working-getting-image-not-found)
 - [Trying to create a Kubernetes deployment but it shows 0 pods available](https://stackoverflow.com/questions/51139988/trying-to-create-a-kubernetes-deployment-but-it-shows-0-pods-available)
 
@@ -122,6 +122,7 @@ Relevant real-world examples on StackOverflow:
 
 - [My kubernetes pods keep crashing with “CrashLoopBackOff” but I can't find any log](https://stackoverflow.com/questions/41604499/my-kubernetes-pods-keep-crashing-with-crashloopbackoff-but-i-cant-find-any-lo)
 - [Kubernetes Readiness probe failed error](https://stackoverflow.com/questions/48540929/kubernetes-readiness-probe-failed-error)
+- [Kubernetes error: validating data found invalid field env for v1 PodSpec](https://stackoverflow.com/questions/43532990/kubernetes-error-validating-data-found-invalid-field-env-for-v1-podspec)
 
 References:
 
@@ -156,7 +157,8 @@ Relevant real-world examples on StackOverflow:
 
 References:
 
-- [Debugging Kubernetes PVCs](https://itnext.io/debugging-kubernetes-pvcs-a150f5efbe95) 
+- [Debugging Kubernetes PVCs](https://itnext.io/debugging-kubernetes-pvcs-a150f5efbe95)
+- Further references see [Stateful Kubernetes](https://stateful.kubernetes.sh/) 
 
 ## Network
 
@@ -195,6 +197,7 @@ References:
 
 - [Debug Services](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-service/) &#128196;
 - [Troubleshooting Kubernetes Networking Issues](https://gravitational.com/blog/troubleshooting-kubernetes-networking/)
+- Further references see [Container Networking](https://mhausenblas.info/cn-ref/)
 
 ## Security
 
@@ -228,12 +231,13 @@ Relevant real-world examples on StackOverflow:
 
 - [Accessing Kubernetes API from pod fails although roles are configured is configured](https://stackoverflow.com/questions/52095161/accessing-kubernetes-api-from-pod-fails-although-roles-are-configured-is-configu)
 - [How to deploy a deployment in another namespace in Kubernetes?](https://stackoverflow.com/questions/52297676/how-to-deploy-a-deployment-in-another-namespace-in-kubernetes/52298101#52298101)
+- [Unable to read my newly created Kubernetes secret](https://stackoverflow.com/questions/51418711/unable-to-read-my-newly-created-kubernetes-secret/51419033#51419033)
 
 References see [kubernetes-security.info](https://kubernetes-security.info/).
 
 ## Observability
 
-From metrics to logs to tracing.
+From metrics ([Prometheus](https://prometheus.io/) and [Grafana](https://grafana.com/)) to logs (EFK/ELK stack) to tracing ([OpenCensus](https://opencensus.io/), [OpenTracing](http://opentracing.io/), ).
 
 ### Service ops in practice
 
