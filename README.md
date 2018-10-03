@@ -82,11 +82,13 @@ Relevant real-world examples on StackOverflow:
 Using [02_pp_oomer.yaml](02_pp_oomer.yaml) and [02_pp_oomer-fixed.yaml](02_pp_oomer-fixed.yaml):
 
 ```
-# prepare a greedy fellow:
+# prepare a greedy fellow that will OOM:
 kubectl -n vnyc apply -f 02_pp_oomer.yaml
+
+# wait > 5s and then check mem in container:
 kubectl -n vnyc exec -it $(kubectl -n vnyc get po -l=app=oomer --output=jsonpath={.items[*].metadata.name}) -c greedymuch -- cat /sys/fs/cgroup/memory/memory.limit_in_bytes /sys/fs/cgroup/memory/memory.usage_in_bytes
 
-# wait > 5s and then:
+
 kubectl -n vnyc describe po $(kubectl -n vnyc get po -l=app=oomer --output=jsonpath={.items[*].metadata.name})
 
 # fix the issue:
