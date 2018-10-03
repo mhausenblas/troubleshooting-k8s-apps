@@ -240,7 +240,7 @@ References see [kubernetes-security.info](https://kubernetes-security.info/).
 
 ## Observability
 
-From metrics ([Prometheus](https://prometheus.io/) and [Grafana](https://grafana.com/)) to logs (EFK/ELK stack) to tracing ([OpenCensus](https://opencensus.io/), [OpenTracing](http://opentracing.io/), ).
+From metrics ([Prometheus](https://prometheus.io/) and [Grafana](https://grafana.com/)) to logs (EFK/ELK stack) to tracing ([OpenCensus](https://opencensus.io/) and [OpenTracing](http://opentracing.io/)).
 
 ### Service ops in practice
 
