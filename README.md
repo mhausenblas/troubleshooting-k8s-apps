@@ -248,7 +248,7 @@ Show [Linkerd 2.0 in action](https://medium.com/@mhausenblas/linkerd-2-0-service
 
 ![Screen shot of Linkerd 2.0 dashboard](img/linkerd2-overview.png)
 
-### Distributed tracing
+### Distributed tracing and debugging
 
 Show [Jaeger 1.6 in action](https://www.jaegertracing.io/docs/1.6/getting-started/) using [this Katacoda scenario](https://katacoda.com/opentracing/scenarios/golang-hotrod-demo).
 
@@ -260,6 +260,7 @@ References:
 - [Evolution of Monitoring and Prometheus](https://www.slideshare.net/brianbrazil/evolution-of-monitoring-and-prometheus-dublin-2018)
 - [The life of a span](https://medium.com/jaegertracing/the-life-of-a-span-ee508410200b)
 - [Distributed Tracing with Jaeger & Prometheus on Kubernetes](https://blog.openshift.com/openshift-commons-briefing-82-distributed-tracing-with-jaeger-prometheus-on-kubernetes/)
+- Debugging: [KubeSquash](https://github.com/solo-io/kubesquash)
 
 ## Vaccination
 
