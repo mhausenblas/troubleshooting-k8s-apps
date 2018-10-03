@@ -60,12 +60,13 @@ _Download [in original resolution](https://github.com/mhausenblas/troubleshootin
 Using [01_pp_image.yaml](01_pp_image.yaml):
 
 ```
+# let's deploy a confused image and look for the error:
 kubectl -n vnyc apply -f 01_pp_image.yaml
-kubectl -n vnyc get pods
 kubectl -n vnyc get events | grep confused | grep Error
 
+# fix it by specifying the correct image:
 kubectl -n vnyc patch deployment confused-imager  \
-                --patch '{ "spec" : { "template" : { "spec" : { "containers" : [ { "name" : "something" , "image" : "mhausenblas/simpleservice:0.5.0" } ] } } } }' \
+                --patch '{ "spec" : { "template" : { "spec" : { "containers" : [ { "name" : "something" , "image" : "mhausenblas/simpleservice:0.5.0" } ] } } } }'
 
 kubectl -n vnyc delete deploy/confused-imager
 ```
