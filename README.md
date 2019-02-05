@@ -1,11 +1,5 @@
 # Troubleshooting Kubernetes Applications
 
-A talk at [Velocity NYC 2018](https://conferences.oreilly.com/velocity/vl-ny/public/schedule/detail/69892):
-
-_When?_  &nbsp;&nbsp;&nbsp; Wednesday Oct 3, 1:30pm (40min) <br />
-_Where?_ &nbsp;&nbsp; Beekman/Sutton North <br />
-_What?_  &nbsp;&nbsp;&nbsp;&nbsp; Debugging and fixing Kubernetes applications for appops
-
 _Table of contents:_
 
 <a href="#preparation" target="_self">Preparation</a> | <a href="#intro" target="_self">Intro</a> | <a href="#poking-pods" target="_self">Poking pods</a>
@@ -13,14 +7,13 @@ _Table of contents:_
 <a href="#storage" target="_self">Storage</a> | <a href="#network" target="_self">Network</a> | <a href="#security" target="_self">Security</a>
 <a href="#observability" target="_self">Observability</a> | <a href="#vaccination" target="_self">Vaccination</a> | <a href="#references" target="_self">References</a>
 
-
-You might want to check out [the slide deck](https://speakerdeck.com/mhausenblas/troubleshooting-kubernetes-applications) used in the talk. To demonstrate the different issues and failures as well as how to fix them, I've been using the commands and resources as shown below. 
+To demonstrate the different issues and failures as well as how to fix them, I've been using the commands and resources as shown below. 
 
 _NOTE_: whenever you see a &#128196; icon, it means this is a reference to the official Kubernetes [docs](https://kubernetes.io/docs/).
 
 ## Preparation
 
-Before the talk, set up:
+Before starting, set up:
 
 ```
 # create the namespace we'll be operating in:
