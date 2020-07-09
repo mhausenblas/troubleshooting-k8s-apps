@@ -1,8 +1,11 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: wheresmyvolume
 spec:
+  selector:
+    matchLabels:
+      app: wheresmyvolume
   replicas: 1
   template:
     metadata:
@@ -24,7 +27,7 @@ spec:
           command:
             - sh
             - '-c'
-            - "cat /tmp/in/data; sleep 10000"
+            - "ls -la /tmp/in/; sleep 10000"
           volumeMounts:
             - name: xchange
               mountPath: /tmp/in

@@ -11,6 +11,10 @@ To demonstrate the different issues and failures as well as how to fix them, I'v
 
 _NOTE_: whenever you see a &#128196; icon, it means this is a reference to the official Kubernetes [docs](https://kubernetes.io/docs/).
 
+## Prerequisits
+
+- Kubernetes 1.16 or higher
+
 ## Preparation
 
 Before starting, set up:
