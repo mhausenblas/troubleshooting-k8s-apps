@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: unhappy-camper
+  name: confused-imager
 spec:
   selector:
     matchLabels:
@@ -13,9 +13,5 @@ spec:
         app: whatever
     spec:
       containers:
-        - name: shell
-          image: centos:7
-          command:
-            - sh
-            - '-c'
-            - echo "I will just print something here and then exit"
+        - name: something
+          image: nginx:1.19.0

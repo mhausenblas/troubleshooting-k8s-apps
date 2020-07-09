@@ -18,4 +18,4 @@ spec:
           command:
             - sh
             - '-c'
-            - echo "I will just print something here and then exit"
+            - tail -f /dev/null
